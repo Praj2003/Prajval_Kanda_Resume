@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
 import educationData from "@/EducationData";
 import { Poppins } from "next/font/google";
+import { motion,useInView } from "motion/react";
+import { useRef } from "react";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -8,6 +11,9 @@ const poppins = Poppins({
 });
 
 const EducationSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
   return (
     <div className={`w-full bg-white ${poppins.className}`}>
       <div className="w-full flex justify-center pt-4">
